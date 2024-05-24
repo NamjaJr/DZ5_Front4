@@ -6,7 +6,7 @@ const App = () => {
     const inputRef = useRef(null)
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value)
+        setInputValue(e.target.value);
     }
 
     const handleAddName = () => {
@@ -43,7 +43,10 @@ const App = () => {
                     {names.map((name, index) => (
                         <li key={index}>
                             {name}
-                            <button onClick={() => handleChangeName(index)}>Поменять</button>
+                            <input type="text" ref={inputRef} />
+                            <button onClick={() => handleChangeName(index)} disabled={!inputValue.trim()}>
+                                Поменять
+                            </button>
                         </li>
                     ))}
                 </ul>
